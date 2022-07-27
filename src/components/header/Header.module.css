@@ -5,6 +5,7 @@
 
     align-items: flex-start;
     gap: 20px;
+    border-bottom: 1px groove gray;
 }
 
 .headerLinks {
@@ -14,6 +15,7 @@
 
 .headerLinkElement {
     text-decoration: none;
+    cursor: pointer;
 }
 
 
