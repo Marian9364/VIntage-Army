@@ -5,6 +5,7 @@ import { AboutPage } from "./components/about-page/AboutPage";
 import { RegisterPage } from "./components/register-page/RegisterPage";
 import { ContactPage } from "./components/contact-page/ContactPage";
 import { LoginPage } from "./components/login-page/LoginPage";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
       <Route path="/register" element={< RegisterPage />} />
       <Route path="/about" element={< AboutPage />} />
       <Route path="/contact" element={< ContactPage />} />
-
     </Routes>
+    <Footer />
     </div>
   );
 }

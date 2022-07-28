@@ -23,7 +23,8 @@ export function RegisterPage() {
   }
   return (
     <div className={styles.mainWrapper}>
-        <h1>Register Page</h1>
+      <div className={styles.innerWrapper}>
+        <h1 className={styles.heading}>Register</h1>
         
         <form onSubmit={submitHandler}>
         <div>
@@ -56,9 +57,10 @@ export function RegisterPage() {
             onChange={changeHandler} />
           </div>
           <div>
-            <button type="submit" onSubmit={changeHandler}>Register</button>
+            <button type="submit">Register</button>
           </div>
         </form>
+        </div>
     </div>
   );
 }
