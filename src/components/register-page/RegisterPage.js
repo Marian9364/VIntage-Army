@@ -1,6 +1,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import styles from "./RegisterPage.module.css";
+import { Link } from "react-router-dom";
 
 export function RegisterPage() {
   const [values, setValues] = useState({
@@ -29,7 +30,7 @@ export function RegisterPage() {
         <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="email">Email:</label>
-          <input
+          <input className={styles.inputFields}
           id="email"
           type="email" 
           name="email"
@@ -40,27 +41,30 @@ export function RegisterPage() {
           </div>
           <div>
             <label htmlFor="password">Password:</label>
-            <input 
+            <input className={styles.inputFields}
             id="password" 
             type="password" 
             name="password" 
-            value={values.password} 
+            value={values.password}
+            placeholder="******"
             onChange={changeHandler} />
           </div>
           <div>
             <label htmlFor="rePass">Repeat Password:</label>
-            <input 
+            <input className={styles.inputFields}
             id="rePass" 
             type="password" 
             name="rePass" 
-            value={values.rePass} 
+            value={values.rePass}
+            placeholder="******"
             onChange={changeHandler} />
           </div>
           <div>
-            <button type="submit">Register</button>
+            <button className={styles.registerBtn} type="submit">Register</button>
           </div>
         </form>
         </div>
+        <div>If you do not have an account <Link to="/login" className={styles.sendToLogInBtn}>click here to log in</Link>!</div>
     </div>
   );
 }

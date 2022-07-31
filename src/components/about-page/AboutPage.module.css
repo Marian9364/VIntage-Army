@@ -3,11 +3,13 @@
 
 .mainWrapper {
     background-color: lightblue;
-    display: flex;
-    gap: 10px;
-    position: relative; 
     height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
 .img {
