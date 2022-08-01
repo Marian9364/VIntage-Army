@@ -10,6 +10,8 @@ export const Header = () => {
         <li className={styles.headerLinks}><Link to="/register" className={styles.headerLinkElement}>Register</Link></li>
         <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
         <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>
+        <li className={styles.headerLinks}><Link to="/profile" className={styles.headerLinkElement}>My Profile</Link></li>
+        <li className={styles.headerLinks}><Link to="/items" className={styles.headerLinkElement}>All Items</Link></li>
     </ul>
     </nav>)
     

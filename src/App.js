@@ -6,8 +6,12 @@ import { RegisterPage } from "./components/register-page/RegisterPage";
 import { ContactPage } from "./components/contact-page/ContactPage";
 import { LoginPage } from "./components/login-page/LoginPage";
 import { Footer } from "./components/footer/Footer";
+import { ProfilePage } from "./components/profile-page/ProfilePage";
+import { AllItemsPage } from "./components/all-items-page/AllItemsPage";
 
 function App() {
+  const username = sessionStorage.getItem('email');
+
   return (
 
     <div className="App">
@@ -18,6 +22,8 @@ function App() {
       <Route path="/register" element={< RegisterPage />} />
       <Route path="/about" element={< AboutPage />} />
       <Route path="/contact" element={< ContactPage />} />
+      <Route path="/profile" element={< ProfilePage name={username}/>} />
+      <Route path="/profile" element={< AllItemsPage />} />
     </Routes>
     <Footer />
     </div>

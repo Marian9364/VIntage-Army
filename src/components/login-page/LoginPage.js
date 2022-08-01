@@ -1,10 +1,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import styles from "./LoginPage.module.css";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
+import { login } from "../../fetch-api/fetch";
 
 
 export function LoginPage() {
+
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -21,6 +24,9 @@ export function LoginPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(values);
+    login(values.email,values.password);
+    const { user } = 
+    navigate('/profile')
   }
 
   return (

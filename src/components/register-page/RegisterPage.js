@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./RegisterPage.module.css";
 import { Link } from "react-router-dom";
+import { register } from "../../fetch-api/fetch";
 
 export function RegisterPage() {
   const [values, setValues] = useState({
@@ -10,7 +11,6 @@ export function RegisterPage() {
     rePass: '',
   });
 
-  
   
   const changeHandler = (e) => {
     setValues(state => ({
@@ -21,6 +21,7 @@ export function RegisterPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(values);
+    register(values.email,values.password);
   }
   return (
     <div className={styles.mainWrapper}>
