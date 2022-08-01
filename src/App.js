@@ -10,7 +10,7 @@ import { ProfilePage } from "./components/profile-page/ProfilePage";
 import { AllItemsPage } from "./components/all-items-page/AllItemsPage";
 
 function App() {
-  const username = sessionStorage.getItem('email');
+  const email = sessionStorage.getItem('email');
 
   return (
 
@@ -22,8 +22,8 @@ function App() {
       <Route path="/register" element={< RegisterPage />} />
       <Route path="/about" element={< AboutPage />} />
       <Route path="/contact" element={< ContactPage />} />
-      <Route path="/profile" element={< ProfilePage name={username}/>} />
-      <Route path="/profile" element={< AllItemsPage />} />
+      <Route path="/profile" element={< ProfilePage name={email}/>} />
+      <Route path="/items" element={< AllItemsPage />} />
     </Routes>
     <Footer />
     </div>
