@@ -15,3 +15,12 @@
     background-image: url("../../img/windmill.jpeg");
     color: white;
 }
+
+.addBtn {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5%;
+    padding: 5px;
+}

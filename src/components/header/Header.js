@@ -10,8 +10,8 @@ export const Header = () => {
     const userNav = (
         <nav>
         <ul className={styles.header} role="list">
-        <li className={styles.headerLinks}><span className={`${styles.headerLinkElement}`}>Welcome {user?.email}</span></li>
-            <li className={styles.headerLinks}><Link to="/" className={`${styles.headerLinkElement} ${styles.home}`}>Home</Link></li>
+            <li className={styles.headerLinks}><span className={styles.headerLinkElement}>Welcome {user?.email}</span></li>
+            <li className={styles.headerLinks}><Link to="/" className={styles.headerLinkElement}>Home</Link></li>
             <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
             <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>
             <li className={styles.headerLinks}><Link to="/profile" className={styles.headerLinkElement}>My Profile</Link></li>
@@ -31,6 +31,7 @@ export const Header = () => {
         <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
         <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>
         <li className={styles.headerLinks}><Link to="/items" className={styles.headerLinkElement}>All Items</Link></li>
+        <li className={styles.headerLinks}><Link to="/profile" className={styles.headerLinkElement}>My Profile</Link></li>
     </ul>
     </nav>
 
