@@ -14,7 +14,7 @@ export const Header = () => {
             <li className={styles.headerLinks}><Link to="/" className={styles.headerLinkElement}>Home</Link></li>
             <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
             <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>
-            <li className={styles.headerLinks}><Link to="/profile" className={styles.headerLinkElement}>My Profile</Link></li>
+            <li className={styles.headerLinks}><Link to="/user/:id" className={styles.headerLinkElement}>My Profile</Link></li>
             <li className={styles.headerLinks}><Link to="/items" className={styles.headerLinkElement}>All Items</Link></li>
             <li className={styles.headerLinks}><Link to="/logout" className={styles.headerLinkElement}>Logout</Link></li>
         </ul>
@@ -31,7 +31,7 @@ export const Header = () => {
         <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
         <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>
         <li className={styles.headerLinks}><Link to="/items" className={styles.headerLinkElement}>All Items</Link></li>
-        <li className={styles.headerLinks}><Link to="/profile" className={styles.headerLinkElement}>My Profile</Link></li>
+        <li className={styles.headerLinks}><Link to="/user/:id" className={styles.headerLinkElement}>My Profile</Link></li>
     </ul>
     </nav>
 

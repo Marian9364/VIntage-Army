@@ -48,16 +48,16 @@ export const AddItemPage = () => {
               value={values.size}
               onChange={changeHandler}
             >
-              <option value="xs">XS</option>
-              <option value="s">S</option>
-              <option value="m">M</option>
-              <option value="xsM">XS-M</option>
-              <option value="l">L</option>
-              <option value="xl">XL</option>
-              <option value="xxl">XXL</option>
-              <option value="lXxl">L-XXL</option>
-              <option value="3641">36-41(for socks)</option>
-              <option value="4246">42-46(for socks)</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="XS-M">XS-M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+              <option value="L-XXL">L-XXL</option>
+              <option value="36-41">36-41(for socks)</option>
+              <option value="42-46">42-46(for socks)</option>
             </select>
           </div>
           <div>
@@ -69,9 +69,9 @@ export const AddItemPage = () => {
               value={values.gender}
               onChange={changeHandler}
             >
-              <option value="m">Male</option>
-              <option value="f">Female</option>
-              <option value="u">Unisex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
             </select>
           </div>
           <div>

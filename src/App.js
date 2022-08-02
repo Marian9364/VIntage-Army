@@ -42,7 +42,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/user/:id" element={<ProfilePage />} />
         <Route path="/items" element={<AllItemsPage />} />
         <Route path="/logout" element={<Logout onLogout={onLogout} />} />
         <Route path="/add" element={<AddItemPage/>} />
