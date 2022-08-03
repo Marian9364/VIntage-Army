@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@700&display=swap');
+
+
+.mainWrapper {
+    font-family: "Edu VIC WA NT Beginner", Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../img/waterfall.jpeg");
+    color: white;
+}

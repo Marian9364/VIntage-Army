@@ -12,6 +12,7 @@ import { ProfilePage } from "./components/profile-page/ProfilePage";
 import { AllItemsPage } from "./components/all-items-page/AllItemsPage";
 import { Logout } from "./components/logout/Logout";
 import { AddItemPage } from "./components/add-item-page/AddItemPage";
+import { NotFoundPage } from "./components/not-found-page/NotFoundPage";
 
 function App() {
   const [user, setUser] = useLocalStorage("user", {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/items" element={<AllItemsPage />} />
         <Route path="/logout" element={<Logout onLogout={onLogout} />} />
         <Route path="/add" element={<AddItemPage/>} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
       <Footer />
     </div>
