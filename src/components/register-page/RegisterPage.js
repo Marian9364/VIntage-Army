@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./RegisterPage.module.css";
 import { Link } from "react-router-dom";
-import { register } from "../../fetch-api/fetch";
+import { register } from "../../services/authService";
 
 export function RegisterPage() {
   const [values, setValues] = useState({

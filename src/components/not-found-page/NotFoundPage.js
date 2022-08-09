@@ -1,5 +1,4 @@
 import styles from "./NotFoundPage.module.css";
-import { useState } from "react";
 
 export const NotFoundPage = () => {
     return (

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import useLocalStorage from "./hooks/useLocalStorage";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./contexts/AuthContext";
 import { Header } from "./components/header/Header";
 import { MainPage } from "./components/main-page/MainPage";
@@ -36,14 +36,14 @@ function App() {
   return (
     <AuthContext.Provider value={{user, login}}>
     <div className="App">
-      <Header />
+      <Header email = {user.email}/>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/user/:id" element={<ProfilePage />} />
+        <Route path="/user/:id" element={<ProfilePage name = {user.email}/>} />
         <Route path="/items" element={<AllItemsPage />} />
         <Route path="/logout" element={<Logout onLogout={onLogout} />} />
         <Route path="/add" element={<AddItemPage/>} />

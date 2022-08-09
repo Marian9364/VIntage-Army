@@ -1,8 +1,9 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import styles from "./LoginPage.module.css";
 import {Link, useNavigate } from 'react-router-dom';
-import { login } from "../../fetch-api/fetch";
+import { login } from "../../services/authService";
+import { AuthContext } from "../../contexts/AuthContext";
 
 
 export function LoginPage() {
@@ -12,7 +13,8 @@ export function LoginPage() {
     email: '',
     password: '',
   });
-
+  
+  const { user } = useContext(AuthContext);
   
   
   const changeHandler = (e) => {
@@ -24,9 +26,14 @@ export function LoginPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(values);
+    console.log(user)
     login(values.email,values.password);
-    const { user } = 
-    navigate('/profile')
+    console.log("user is:")
+    console.log(user)
+    console.log("values.email is:")
+    console.log(values)
+
+    navigate('/user/:id')
   }
 
   return (
