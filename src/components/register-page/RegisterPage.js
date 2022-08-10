@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import styles from "./RegisterPage.module.css";
 import { Link } from "react-router-dom";
 import { register } from "../../services/authService";
@@ -21,6 +21,9 @@ export function RegisterPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(values);
+    if(values.password != values.rePass){
+      alert("Passwords do not match!")
+    }
     register(values.email,values.password);
   }
   return (
@@ -65,7 +68,7 @@ export function RegisterPage() {
           </div>
         </form>
         </div>
-        <div>If you do not have an account <Link to="/login" className={styles.sendToLogInBtn}>click here to log in</Link>!</div>
+        <div>If you already have an account <Link to="/login" className={styles.sendToLogInBtn}>click here to log in</Link>!</div>
     </div>
   );
 }

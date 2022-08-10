@@ -7,8 +7,10 @@ export const AddItemPage = () => {
     size: "",
     gender: "",
     img: "",
+    price: "0",
     creator: "",
-    price: "0"
+    phone: "0"
+
   });
 
   const changeHandler = (e) => {
@@ -77,7 +79,25 @@ export const AddItemPage = () => {
           </div>
           <div>
           <label htmlFor="img">Image:</label>
-          <input type="file" value={values.img} onChange={changeHandler} />
+          <input 
+            className={styles.inputFields}
+            type="text" 
+            value={values.img} 
+            name="img"
+            placeholder="img URL"
+            onChange={changeHandler} />
+          </div>
+          <div>
+            <label htmlFor="price">Price in Leva:</label>
+            <input
+              className={styles.inputFields}
+              id="price"
+              type="number"
+              name="price"
+              value={values.price}
+              placeholder="24.99"
+              onChange={changeHandler}
+            />
           </div>
           <div>
             <label htmlFor="creator">Creator:</label>
@@ -92,14 +112,14 @@ export const AddItemPage = () => {
             />
           </div>
           <div>
-            <label htmlFor="price">Price in Leva:</label>
+            <label htmlFor="phone">Phone number:</label>
             <input
               className={styles.inputFields}
-              id="price"
+              id="phone"
               type="number"
-              name="price"
-              value={values.price}
-              placeholder="24.99"
+              name="phone"
+              value={values.phone}
+              placeholder="0898123456"
               onChange={changeHandler}
             />
           </div>

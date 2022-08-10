@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import styles from "./LoginPage.module.css";
 import {Link, useNavigate } from 'react-router-dom';
 import { login } from "../../services/authService";
@@ -25,13 +25,8 @@ export function LoginPage() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(values);
-    console.log(user)
+
     login(values.email,values.password);
-    console.log("user is:")
-    console.log(user)
-    console.log("values.email is:")
-    console.log(values)
 
     navigate('/user/:id')
   }
