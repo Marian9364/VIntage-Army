@@ -71,10 +71,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route
-              path="/user/:id"
-              element={<ProfilePage />}
-            />
+            <Route path="/users/:userId" element={<ProfilePage />} items={items} />
             <Route path="/items" element={<AllItemsPage items={items} />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/add" element={<AddItemPage />} />

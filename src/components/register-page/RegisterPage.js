@@ -1,30 +1,34 @@
-
-import { useState } from "react";
 import styles from "./RegisterPage.module.css";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { register } from "../../services/authService";
+import * as authService from "../../services/authService";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function RegisterPage() {
-  const [values, setValues] = useState({
-    email: '',
-    password: '',
-    rePass: '',
-  });
+  const { userLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  
-  const changeHandler = (e) => {
-    setValues(state => ({
-      ...state,
-      [e.target.name]: e.target.value}));
-  };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(values);
-    if(values.password != values.rePass){
-      alert("Passwords do not match!")
+
+    const formData = new FormData(e.target);
+
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirm-password');
+
+    if (password !== confirmPassword) {
+        alert("Passwords must match!");
+        return
     }
-    register(values.email,values.password);
+
+    authService.register(email, password)
+        .then(authData => {
+            userLogin(authData);
+            navigate('/login');
+        });
   }
   return (
     <div className={styles.mainWrapper}>
@@ -38,9 +42,7 @@ export function RegisterPage() {
           id="email"
           type="email" 
           name="email"
-          value={values.email} 
           placeholder="IvanIvanov@mail.com"
-          onChange={changeHandler}
            />
           </div>
           <div>
@@ -49,19 +51,17 @@ export function RegisterPage() {
             id="password" 
             type="password" 
             name="password" 
-            value={values.password}
             placeholder="******"
-            onChange={changeHandler} />
+            />
           </div>
           <div>
             <label htmlFor="rePass">Repeat Password:</label>
             <input className={styles.inputFields}
-            id="rePass" 
+            id="confirm-password" 
             type="password" 
-            name="rePass" 
-            value={values.rePass}
+            name="confirm-password" 
             placeholder="******"
-            onChange={changeHandler} />
+            />
           </div>
           <div>
             <button className={styles.registerBtn} type="submit">Register</button>

@@ -2,8 +2,6 @@
     background-color: lightblue;
     display: flex;
     justify-content: end;
-
-    align-items: flex-start;
     gap: 20px;
     border-bottom: 1px groove gray;
 }
@@ -17,11 +15,4 @@
     color: white;
     text-shadow: 1px 1px #000000;
     text-decoration: none;
-}
-
-
-.home {
-    display: flex;
-    justify-content: flex-start;
-    align-self: flex-start;
 }

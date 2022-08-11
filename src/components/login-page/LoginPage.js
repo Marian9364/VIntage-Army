@@ -1,34 +1,32 @@
-
-import { useState, useContext } from "react";
 import styles from "./LoginPage.module.css";
+import { useContext } from "react";
 import {Link, useNavigate } from 'react-router-dom';
 import { login } from "../../services/authService";
 import { AuthContext } from "../../contexts/AuthContext";
+import * as authService from "../../services/authService";
 
 
 export function LoginPage() {
-
+  const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [values, setValues] = useState({
-    email: '',
-    password: '',
-  });
-  
-  const { user } = useContext(AuthContext);
-  
-  
-  const changeHandler = (e) => {
-    setValues(state => ({
-      ...state,
-      [e.target.name]: e.target.value}));
-  };
+
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    login(values.email,values.password);
+    const {
+        email,
+        password,
+    } = Object.fromEntries(new FormData(e.target));
 
-    navigate('/user/:id')
+    authService.login(email, password)
+        .then(authData => {
+            userLogin(authData);
+            navigate('/items');
+        })
+        .catch(() => {
+            navigate('/');
+        });
   }
 
   return (
@@ -43,9 +41,7 @@ export function LoginPage() {
           id="email"
           type="email" 
           name="email"
-          value={values.email} 
           placeholder="IvanIvanov@mail.com"
-          onChange={changeHandler}
            />
           </div>
           <div>
@@ -54,9 +50,8 @@ export function LoginPage() {
             id="password" 
             type="password" 
             name="password" 
-            value={values.password}
             placeholder="******" 
-            onChange={changeHandler} />
+            />
           </div>
           <div>
             <button className={styles.loginBtn} type="submit">Login</button>

@@ -1,29 +1,34 @@
 import styles from "./EditPage.module.css";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from 'react-router-dom';
+import * as itemsService from "../../services/itemsService";
+import { ItemContext } from "../../contexts/ItemContext";
 
 export const EditItemPage = () => {
-  const [values, setValues] = useState({
-    type: "",
-    size: "",
-    gender: "",
-    img: "",
-    price: "0",
-    creator: "",
-    phone: "0"
-    
+ 
+  const [currentItem, setCurrentItem] = useState({});
+  const { editItem } = useContext(ItemContext);
+  const { itemId } = useParams();
+  const navigate = useNavigate();
 
-  });
+  useEffect(() => {
+    itemsService.getOne(itemId)
+        .then(itemData => {
+            setCurrentItem(itemData);
+        })
+}, [])
 
-  const changeHandler = (e) => {
-    setValues((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(values);
-    
+
+    const itemData = Object.fromEntries(new FormData(e.target));
+
+    itemsService.edit(itemId, itemData)
+        .then(result => {
+            editItem(itemId, result);
+            navigate("/items")
+        });
   };
 
   return (
@@ -38,10 +43,8 @@ export const EditItemPage = () => {
               id="type"
               type="text"
               name="type"
-              value={values.type}
-              placeholder="Pullover"
-              onChange={changeHandler}
-            />
+              defaultValue={currentItem.type}
+             />
           </div>
           <div>
             <label htmlFor="size">Size:</label>
@@ -49,8 +52,7 @@ export const EditItemPage = () => {
               className={styles.inputFields}
               name="size"
               id="size"
-              value={values.size}
-              onChange={changeHandler}
+              defaultValue={currentItem.size}
             >
               <option value="XS">XS</option>
               <option value="S">S</option>
@@ -70,8 +72,7 @@ export const EditItemPage = () => {
               className={styles.inputFields}
               name="gender"
               id="gender"
-              value={values.gender}
-              onChange={changeHandler}
+              defaultValue={currentItem.gender}
             >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -83,10 +84,9 @@ export const EditItemPage = () => {
           <input 
             className={styles.inputFields}
             type="text" 
-            value={values.img} 
+            defaultValue={currentItem.img}
             name="img"
-            placeholder="img URL"
-            onChange={changeHandler} />
+            />
           </div>
           <div>
             <label htmlFor="price">Price in Leva:</label>
@@ -95,9 +95,7 @@ export const EditItemPage = () => {
               id="price"
               type="number"
               name="price"
-              value={values.price}
-              placeholder="24.99"
-              onChange={changeHandler}
+              defaultValue={currentItem.price}
             />
           </div>
           <div>
@@ -107,9 +105,7 @@ export const EditItemPage = () => {
               id="creator"
               type="text"
               name="creator"
-              value={values.creator}
-              placeholder="Baba Ginka from Yagoda"
-              onChange={changeHandler}
+              defaultValue={currentItem.creator}
             />
           </div>
           <div>
@@ -119,9 +115,7 @@ export const EditItemPage = () => {
               id="phone"
               type="number"
               name="phone"
-              value={values.phone}
-              placeholder="0898123456"
-              onChange={changeHandler}
+              defaultValue={currentItem.phone}
             />
           </div>
           <div>

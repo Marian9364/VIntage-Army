@@ -1,28 +1,19 @@
 import styles from "./AddItemPage.module.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { ItemContext } from "../../contexts/ItemContext";
+import * as itemsService from "../../services/itemsService";
 
 export const AddItemPage = () => {
-  const [values, setValues] = useState({
-    type: "",
-    size: "",
-    gender: "",
-    img: "",
-    price: "0",
-    creator: "",
-    phone: "0"
+  const { addItem } = useContext(ItemContext);
 
-  });
-
-  const changeHandler = (e) => {
-    setValues((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(values);
-    
+
+    const itemData = Object.fromEntries(new FormData(e.target));
+
+    itemsService.create(itemData).then((result) => {
+      addItem(result);
+    });
   };
 
   return (
@@ -37,20 +28,12 @@ export const AddItemPage = () => {
               id="type"
               type="text"
               name="type"
-              value={values.type}
               placeholder="Pullover"
-              onChange={changeHandler}
             />
           </div>
           <div>
             <label htmlFor="size">Size:</label>
-            <select
-              className={styles.inputFields}
-              name="size"
-              id="size"
-              value={values.size}
-              onChange={changeHandler}
-            >
+            <select className={styles.inputFields} name="size" id="size">
               <option value="XS">XS</option>
               <option value="S">S</option>
               <option value="M">M</option>
@@ -65,27 +48,20 @@ export const AddItemPage = () => {
           </div>
           <div>
             <label htmlFor="gender">Gender:</label>
-            <select
-              className={styles.inputFields}
-              name="gender"
-              id="gender"
-              value={values.gender}
-              onChange={changeHandler}
-            >
+            <select className={styles.inputFields} name="gender" id="gender">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Unisex">Unisex</option>
             </select>
           </div>
           <div>
-          <label htmlFor="img">Image:</label>
-          <input 
-            className={styles.inputFields}
-            type="text" 
-            value={values.img} 
-            name="img"
-            placeholder="img URL"
-            onChange={changeHandler} />
+            <label htmlFor="img">Image:</label>
+            <input
+              className={styles.inputFields}
+              type="text"
+              name="img"
+              placeholder="Upload a photo..."
+            />
           </div>
           <div>
             <label htmlFor="price">Price in Leva:</label>
@@ -94,9 +70,7 @@ export const AddItemPage = () => {
               id="price"
               type="number"
               name="price"
-              value={values.price}
               placeholder="24.99"
-              onChange={changeHandler}
             />
           </div>
           <div>
@@ -106,9 +80,7 @@ export const AddItemPage = () => {
               id="creator"
               type="text"
               name="creator"
-              value={values.creator}
               placeholder="Baba Ginka from Yagoda"
-              onChange={changeHandler}
             />
           </div>
           <div>
@@ -118,13 +90,13 @@ export const AddItemPage = () => {
               id="phone"
               type="number"
               name="phone"
-              value={values.phone}
               placeholder="0898123456"
-              onChange={changeHandler}
             />
           </div>
           <div>
-            <button className={styles.addItemBtn} type="submit">Add Item</button>
+            <button className={styles.addItemBtn} type="submit">
+              Add Item
+            </button>
           </div>
         </form>
       </div>
