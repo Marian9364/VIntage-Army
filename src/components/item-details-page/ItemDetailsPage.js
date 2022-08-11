@@ -1,9 +1,11 @@
 import styles from "./ItemDetailsPage.module.css";
+import "../../reset.css"
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import * as itemsService from "../../services/itemsService";
 import * as commentService from "../../services/commentService";
 import { useItemContext } from "../../contexts/ItemContext";
+
 
 export const ItemDetailsPage = () => {
   const { itemId } = useParams();
@@ -32,6 +34,8 @@ export const ItemDetailsPage = () => {
     commentService.create(itemId, comment).then(result => {
       addComment(itemId, comment);
     });
+    e.target.reset()
+
   };
 
   const deleteItemHandler = () => {
@@ -47,6 +51,7 @@ export const ItemDetailsPage = () => {
     }
   };
 
+
   return (
     <div className={styles.mainWrapper}>
       <div className={styles.innerWrapper}>
@@ -59,27 +64,28 @@ export const ItemDetailsPage = () => {
         <h2>Created by: {currentItem.creator}</h2>
         <h2>Creator's phone number: {currentItem.phone}</h2>
         <div className={styles.btns}>
-          <Link to={`/items/${itemId}/edit`} className={styles.btn}>
+          <Link to={`/items/${itemId}/edit`} className={styles.editBtn}>
             Edit
           </Link>
-          <button onClick={deleteItemHandler} className={styles.btn}>
+          <button onClick={deleteItemHandler} className={styles.delBtn}>
             Delete
           </button>
         </div>
         <div className={styles.commentsWrapper}>
-          <h2>Comments:</h2>
-          <ul>
+          <h2 className={styles.commentsText}>Comments:</h2>
+          <ul role="list">
             {currentItem.comments?.map((x) => (
-              <li key={x} className="comment">
+              <li key={x} className={styles.comment}>
                 <p>{x}</p>
               </li>
             ))}
           </ul>
 
-          {!currentItem.comments && <p className="no-comment">No comments.</p>}
+          {!currentItem.comments && <p>No comments.</p>}
         </div>
         <div className={styles.createComment}>
           <label>Add new comment:</label>
+          <div className={styles.commentFieldAndBtn}>
           <form className={styles.form} onSubmit={addCommentHandler}>
             <textarea name="comment" placeholder="Comment......" />
 
@@ -89,6 +95,7 @@ export const ItemDetailsPage = () => {
               value="Add Comment"
             />
           </form>
+          </div>
         </div>
       </div>
     </div>

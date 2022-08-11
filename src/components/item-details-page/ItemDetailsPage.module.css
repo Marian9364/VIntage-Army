@@ -3,47 +3,72 @@
 
 .mainWrapper {
     font-family: "Edu VIC WA NT Beginner", Arial, Helvetica, sans-serif;
-    background-color: lightblue;
     position: relative; 
     height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
     background-image: url("../../img/windmill.jpeg");
     color: white;
+}
+
+.innerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .heading {
     color: white;
-    font-size: 70px;
+    font-size: 50px;
     text-shadow: 4px 2px #000000;
-    padding-bottom: 40px;
-}
-.btns {
-    font-size: 30px;
-    background-color: transparent;
+    padding-bottom: 20px;
 }
 
-.btn {
+
+.editBtn {
+    font-size: 30px;
     padding: 5px;
     margin: 0px 10px 10px 10px;
     color: white;
     border: 1px solid white;
     border-radius: 10%;
+
+    text-decoration: none;
+
 }
 
+.delBtn {
+    font-size: 30px;
+    padding: 5px;
+    margin: 0px 10px 10px 10px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10%;
+    background-color: transparent;
+    cursor: pointer;
+}
+.comment {
+    display: flex;
+    gap: 10px;
+}
+
+.img {
+    width: auto;
+    height: 200px;
+}
 .commentsWrapper {
-    color: red;
+    color: white;
+    text-decoration: underline;
+    position:relative;
 }
 
-.createComment {
-    color: blue;
-}
 
 .btnSubmit {
-    color: green;
+    color: black;
+    position:absolute;
+}
+
+.commentsText {
+    padding: 10px 0px;
 }
