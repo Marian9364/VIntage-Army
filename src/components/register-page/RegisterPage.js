@@ -1,12 +1,11 @@
 import styles from "./RegisterPage.module.css";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import * as authService from "../../services/authService";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 export function RegisterPage() {
-  const { userLogin } = useContext(AuthContext);
+  const { userLogin } = useAuthContext();
   const navigate = useNavigate();
 
 
@@ -27,7 +26,7 @@ export function RegisterPage() {
     authService.register(email, password)
         .then(authData => {
             userLogin(authData);
-            navigate('/login');
+            navigate('/');
         });
   }
   return (

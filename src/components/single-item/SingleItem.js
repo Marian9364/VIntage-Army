@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import styles from "./SingleItem.module.css"
 
 export const SingleItem = ({ item }) => {
-  console.log(item);
   return (
     <div className={styles.mainWrapper}>
       <div className={styles.innerWrapper}>
@@ -14,6 +13,7 @@ export const SingleItem = ({ item }) => {
         <h4>Gender: {item.gender}</h4>
         <h4>price: {item.price}</h4>
         <Link to={`/items/${item._id}/edit`} className={styles.editBtn}>Edit Item</Link>
+        <Link to={`/items/${item._id}`} className={styles.detailsBtn}>Details and Contacts</Link>
       </div>
     </div>
   );

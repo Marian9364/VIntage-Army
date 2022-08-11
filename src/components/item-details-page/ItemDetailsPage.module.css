@@ -23,3 +23,27 @@
     text-shadow: 4px 2px #000000;
     padding-bottom: 40px;
 }
+.btns {
+    font-size: 30px;
+    background-color: transparent;
+}
+
+.btn {
+    padding: 5px;
+    margin: 0px 10px 10px 10px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10%;
+}
+
+.commentsWrapper {
+    color: red;
+}
+
+.createComment {
+    color: blue;
+}
+
+.btnSubmit {
+    color: green;
+}

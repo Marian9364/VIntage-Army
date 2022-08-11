@@ -1,13 +1,13 @@
-import styles from "./EditPage.module.css";
-import { useState, useEffect, useContext } from "react";
+import styles from "./EditItemPage.module.css";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import * as itemsService from "../../services/itemsService";
-import { ItemContext } from "../../contexts/ItemContext";
+import { useItemContext } from "../../contexts/ItemContext";
 
 export const EditItemPage = () => {
  
   const [currentItem, setCurrentItem] = useState({});
-  const { editItem } = useContext(ItemContext);
+  const { editItem } = useItemContext();
   const { itemId } = useParams();
   const navigate = useNavigate();
 
