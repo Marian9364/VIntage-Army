@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ItemProvider } from "./contexts/ItemContext";
+
 import { Header } from "./components/header/Header";
 import { MainPage } from "./components/main-page/MainPage";
 import { AboutPage } from "./components/about-page/AboutPage";
@@ -16,6 +17,7 @@ import { EditItemPage } from "./components/edit-page/EditItemPage";
 import { ItemDetailsPage } from "./components/item-details-page/ItemDetailsPage";
 import { NotFoundPage } from "./components/not-found-page/NotFoundPage";
 import { RouteGuard } from "./components/route-guard/RouteGuard";
+
 function App() {
 
   return (

@@ -1,15 +1,12 @@
 import styles from "./LoginPage.module.css";
 import { useContext } from "react";
 import {Link, useNavigate } from 'react-router-dom';
-import { login } from "../../services/authService";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
-
 
 export function LoginPage() {
   const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
-
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -38,7 +35,6 @@ export function LoginPage() {
     <div className={styles.mainWrapper}>
       <div className={styles.innerWrapper}>
         <h1 className={styles.heading}>Login</h1>
-        
         <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="email">Email:</label>

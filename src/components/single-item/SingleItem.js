@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./SingleItem.module.css"
+import styles from "./SingleItem.module.css";
 
 export const SingleItem = ({ item }) => {
   return (

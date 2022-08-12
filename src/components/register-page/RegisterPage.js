@@ -8,12 +8,10 @@ export function RegisterPage() {
   const { userLogin } = useAuthContext();
   const navigate = useNavigate();
 
-
   const submitHandler = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-
     const email = formData.get('email');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirm-password');
@@ -38,7 +36,6 @@ export function RegisterPage() {
     <div className={styles.mainWrapper}>
       <div className={styles.innerWrapper}>
         <h1 className={styles.heading}>Register</h1>
-        
         <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="email">Email:</label>

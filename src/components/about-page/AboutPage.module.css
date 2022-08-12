@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@700&display=swap');
 
-
 .mainWrapper {
     background-color: lightblue;
     color: white;
@@ -24,5 +23,4 @@
     font-family: "Edu VIC WA NT Beginner", Arial, Helvetica, sans-serif;
     color: white;
     text-shadow: 4px 2px #000000;
-
 }

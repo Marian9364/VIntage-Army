@@ -18,14 +18,12 @@
     justify-content: center;
 }
 
-
 .heading {
     color: white;
     font-size: 50px;
     text-shadow: 4px 2px #000000;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
-
 
 .editBtn {
     font-size: 30px;
@@ -52,6 +50,7 @@
 .comment {
     display: flex;
     gap: 10px;
+    text-decoration: none;
 }
 
 .img {
@@ -60,10 +59,8 @@
 }
 .commentsWrapper {
     color: white;
-    text-decoration: underline;
     position:relative;
 }
-
 
 .btnSubmit {
     color: white;
@@ -84,4 +81,5 @@
 
 .commentsText {
     padding: 10px 0px;
+    text-decoration: underline;
 }

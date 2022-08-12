@@ -10,8 +10,6 @@ import { useAuthContext } from "../../contexts/AuthContext";
 export const ItemDetailsPage = () => {
   const { itemId } = useParams();
   const { user, isAuthenticated } = useAuthContext();
-
-  // const { commentId } = useParams();
   const navigate = useNavigate();
   const { addComment, fetchItemDetails, selectItem, removeItem } =
     useItemContext();
@@ -49,12 +47,6 @@ export const ItemDetailsPage = () => {
     e.target.reset();
   };
 
-  // const deleteCommentHandler = (e) => {
-  //   e.preventDefault();
-  //   commentService.remove(commentId);
-
-  // }
-
   const deleteItemHandler = () => {
     const confirmation = window.confirm(
       "Are you sure you want to delete the item?"
@@ -79,7 +71,6 @@ export const ItemDetailsPage = () => {
         <h4>Price: {currentItem.price}</h4>
         <h2>Created By: {currentItem.creator}</h2>
         <h2>Creator's Phone Number: {currentItem.phone}</h2>
-
         {isOwner && 
           <div className={styles.btns}>
             <Link to={`/items/${itemId}/edit`} className={styles.editBtn}>
@@ -89,20 +80,16 @@ export const ItemDetailsPage = () => {
               Delete
             </button>
           </div>
-        }
-         
-
+        }        
         <div className={styles.commentsWrapper}>
           <h2 className={styles.commentsText}>Comments:</h2>
           <ul role="list">
             {currentItem.comments?.map((x) => (
               <li key={x} className={styles.comment}>
                 <p>{x}</p>
-                {/* <button onClick={deleteCommentHandler}>x</button> */}
               </li>
             ))}
           </ul>
-
           {!currentItem.comments && <p>No comments.</p>}
         </div>
         <div className={styles.createComment}>
