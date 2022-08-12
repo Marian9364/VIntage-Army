@@ -13,7 +13,8 @@ export const ProfilePage = ({ items }) => {
         <h1>My Profile</h1>
         <h2>Hello {user?.email}</h2>
         {/* <p>My items to sell:</p> */}
-        <p>If you would like to add an Item to sell click the button bellow</p>
+        <h3>If you would like to add an Item to sell click the button bellow.</h3>
+        <p className={styles.arrow}>&#8595;</p>
         <Link to="/add" className={styles.addBtn}>Add Item</Link>
         </div>
     )

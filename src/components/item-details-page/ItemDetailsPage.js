@@ -5,10 +5,14 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import * as itemsService from "../../services/itemsService";
 import * as commentService from "../../services/commentService";
 import { useItemContext } from "../../contexts/ItemContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 
 export const ItemDetailsPage = () => {
   const { itemId } = useParams();
+  const { user } = useAuthContext();
+
+
   // const { commentId } = useParams();
   const navigate = useNavigate();
   const { addComment, fetchItemDetails, selectItem, removeItem } = useItemContext();
@@ -18,6 +22,8 @@ export const ItemDetailsPage = () => {
     (async () => {
       const itemDetails = await itemsService.getOne(itemId);
       const itemComments = await commentService.getByItemId(itemId);
+
+      console.log(user._id == itemDetails._ownerId);
 
       fetchItemDetails(itemId, {
         ...itemDetails,
@@ -75,14 +81,20 @@ export const ItemDetailsPage = () => {
         <h4>price: {currentItem.price}</h4>
         <h2>Created by: {currentItem.creator}</h2>
         <h2>Creator's phone number: {currentItem.phone}</h2>
-        <div className={styles.btns}>
-          <Link to={`/items/${itemId}/edit`} className={styles.editBtn}>
-            Edit
-          </Link>
+
+          {user.email?
+                  <div className={styles.btns}>
+                  <Link to={`/items/${itemId}/edit`} className={styles.editBtn}>
+                    Edit
+                  </Link>
           <button onClick={deleteItemHandler} className={styles.delBtn}>
-            Delete
-          </button>
+          Delete
+        </button>
         </div>
+           : 
+        <span></span>
+          }
+          
         <div className={styles.commentsWrapper}>
           <h2 className={styles.commentsText}>Comments:</h2>
           <ul role="list">
