@@ -73,6 +73,14 @@
     border-radius: 5%;
 }
 
+.btnSubmitDisabled {
+    color: red;
+    background-color: white;
+    border: 2px solid white;
+    position:absolute;
+    border-radius: 5%;
+}
+
 .commentsText {
     padding: 10px 0px;
 }

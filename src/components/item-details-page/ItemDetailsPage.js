@@ -106,16 +106,15 @@ export const ItemDetailsPage = () => {
           {!currentItem.comments && <p>No comments.</p>}
         </div>
         <div className={styles.createComment}>
-          <label>Add new comment:</label>
+          <label>Comment On Other Sellers:</label>
           <div className={styles.commentFieldAndBtn}>
             <form className={styles.form} onSubmit={addCommentHandler}>
               <textarea name="comment" placeholder="Comment......" />
-
-              <input
-                className={styles.btnSubmit}
-                type="submit"
-                value="Add Comment"
-              />
+              {isOwner?
+              <button className={styles.btnSubmitDisabled} type="submit" disabled> No Comment</button>
+              :
+              <button className={styles.btnSubmit} type="submit"> Add Comment</button>
+              }
             </form>
           </div>
         </div>
