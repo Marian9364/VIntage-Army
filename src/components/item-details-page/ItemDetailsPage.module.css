@@ -66,8 +66,11 @@
 
 
 .btnSubmit {
-    color: black;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
     position:absolute;
+    border-radius: 5%;
 }
 
 .commentsText {

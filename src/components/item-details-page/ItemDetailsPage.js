@@ -1,5 +1,5 @@
 import styles from "./ItemDetailsPage.module.css";
-import "../../reset.css"
+import "../../reset.css";
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import * as itemsService from "../../services/itemsService";
@@ -7,16 +7,17 @@ import * as commentService from "../../services/commentService";
 import { useItemContext } from "../../contexts/ItemContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 
-
 export const ItemDetailsPage = () => {
   const { itemId } = useParams();
   const { user } = useAuthContext();
 
-
   // const { commentId } = useParams();
   const navigate = useNavigate();
-  const { addComment, fetchItemDetails, selectItem, removeItem } = useItemContext();
+  const { addComment, fetchItemDetails, selectItem, removeItem } =
+    useItemContext();
   const currentItem = selectItem(itemId);
+
+  const isOwner = currentItem._ownerId === user._id
 
   useEffect(() => {
     (async () => {
@@ -27,7 +28,7 @@ export const ItemDetailsPage = () => {
 
       fetchItemDetails(itemId, {
         ...itemDetails,
-        comments: itemComments.map(x => `${x.user.email}: ${x.text}`),
+        comments: itemComments.map((x) => `${x.user.email}: ${x.text}`),
       });
     })();
   }, []);
@@ -37,17 +38,15 @@ export const ItemDetailsPage = () => {
     const formData = new FormData(e.target);
 
     const comment = formData.get("comment");
-    if(comment === ""){
+    if (comment === "") {
       alert("Comment can not be empty!");
-      return
+      return;
     }
-    
 
-    commentService.create(itemId, comment).then(result => {
+    commentService.create(itemId, comment).then((result) => {
       addComment(itemId, comment);
     });
-    e.target.reset()
-
+    e.target.reset();
   };
 
   // const deleteCommentHandler = (e) => {
@@ -69,7 +68,6 @@ export const ItemDetailsPage = () => {
     }
   };
 
-
   return (
     <div className={styles.mainWrapper}>
       <div className={styles.innerWrapper}>
@@ -78,23 +76,22 @@ export const ItemDetailsPage = () => {
         <img className={styles.img} src={currentItem.img} />
         <h4>Size: {currentItem.size}</h4>
         <h4>Gender: {currentItem.gender}</h4>
-        <h4>price: {currentItem.price}</h4>
-        <h2>Created by: {currentItem.creator}</h2>
-        <h2>Creator's phone number: {currentItem.phone}</h2>
+        <h4>Price: {currentItem.price}</h4>
+        <h2>Created By: {currentItem.creator}</h2>
+        <h2>Creator's Phone Number: {currentItem.phone}</h2>
 
-          {user.email?
-                  <div className={styles.btns}>
-                  <Link to={`/items/${itemId}/edit`} className={styles.editBtn}>
-                    Edit
-                  </Link>
-          <button onClick={deleteItemHandler} className={styles.delBtn}>
-          Delete
-        </button>
-        </div>
-           : 
-        <span></span>
-          }
-          
+        {isOwner && 
+          <div className={styles.btns}>
+            <Link to={`/items/${itemId}/edit`} className={styles.editBtn}>
+              Edit
+            </Link>
+            <button onClick={deleteItemHandler} className={styles.delBtn}>
+              Delete
+            </button>
+          </div>
+        }
+         
+
         <div className={styles.commentsWrapper}>
           <h2 className={styles.commentsText}>Comments:</h2>
           <ul role="list">
@@ -111,15 +108,15 @@ export const ItemDetailsPage = () => {
         <div className={styles.createComment}>
           <label>Add new comment:</label>
           <div className={styles.commentFieldAndBtn}>
-          <form className={styles.form} onSubmit={addCommentHandler}>
-            <textarea name="comment" placeholder="Comment......" />
+            <form className={styles.form} onSubmit={addCommentHandler}>
+              <textarea name="comment" placeholder="Comment......" />
 
-            <input
-              className={styles.btnSubmit}
-              type="submit"
-              value="Add Comment"
-            />
-          </form>
+              <input
+                className={styles.btnSubmit}
+                type="submit"
+                value="Add Comment"
+              />
+            </form>
           </div>
         </div>
       </div>

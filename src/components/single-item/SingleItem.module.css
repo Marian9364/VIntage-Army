@@ -33,22 +33,13 @@
     object-fit: contain;
 }
 
-.editBtn {
-    color: white;
-    border-radius: 1px solid white;
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-    cursor: pointer;
-}
+
 
 .detailsBtn {
     color: white;
-    border-radius: 1px solid white;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     cursor: pointer;
-    position: relative;
-    top: 20px;
-    right: 67px;
-    
+    font-size: large;
 }
 
 .img {
