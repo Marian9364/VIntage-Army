@@ -16,6 +16,11 @@
     color: white;
 }
 
+.myItemsWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
 .addBtn {
     font-size: 30px;
     color: white;

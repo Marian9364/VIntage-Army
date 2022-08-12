@@ -9,7 +9,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 
 export const ItemDetailsPage = () => {
   const { itemId } = useParams();
-  const { user } = useAuthContext();
+  const { user, isAuthenticated } = useAuthContext();
 
   // const { commentId } = useParams();
   const navigate = useNavigate();
@@ -110,7 +110,7 @@ export const ItemDetailsPage = () => {
           <div className={styles.commentFieldAndBtn}>
             <form className={styles.form} onSubmit={addCommentHandler}>
               <textarea name="comment" placeholder="Comment......" />
-              {isOwner?
+              {isOwner || !isAuthenticated || !user?
               <button className={styles.btnSubmitDisabled} type="submit" disabled> No Comment</button>
               :
               <button className={styles.btnSubmit} type="submit"> Add Comment</button>

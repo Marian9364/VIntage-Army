@@ -39,7 +39,15 @@
     color: white;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     cursor: pointer;
-    font-size: large;
+    font-size: 20px;
+    position: relative;
+    top: 26px;
+    right: 34px;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 10px;
+    margin-top: auto;
+    margin-left: 20px;
 }
 
 .img {
@@ -49,6 +57,7 @@
     position: absolute;
     top: 90px;
     right: 30px;
+    float: right;
     padding: 5px;
     width: 140px;
 
