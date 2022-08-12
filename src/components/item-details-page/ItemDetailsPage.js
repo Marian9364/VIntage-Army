@@ -9,6 +9,7 @@ import { useItemContext } from "../../contexts/ItemContext";
 
 export const ItemDetailsPage = () => {
   const { itemId } = useParams();
+  // const { commentId } = useParams();
   const navigate = useNavigate();
   const { addComment, fetchItemDetails, selectItem, removeItem } = useItemContext();
   const currentItem = selectItem(itemId);
@@ -20,7 +21,7 @@ export const ItemDetailsPage = () => {
 
       fetchItemDetails(itemId, {
         ...itemDetails,
-        comments: itemComments.map((x) => `${x.user.email}: ${x.text}`),
+        comments: itemComments.map(x => `${x.user.email}: ${x.text}`),
       });
     })();
   }, []);
@@ -30,6 +31,11 @@ export const ItemDetailsPage = () => {
     const formData = new FormData(e.target);
 
     const comment = formData.get("comment");
+    if(comment === ""){
+      alert("Comment can not be empty!");
+      return
+    }
+    
 
     commentService.create(itemId, comment).then(result => {
       addComment(itemId, comment);
@@ -37,6 +43,12 @@ export const ItemDetailsPage = () => {
     e.target.reset()
 
   };
+
+  // const deleteCommentHandler = (e) => {
+  //   e.preventDefault();
+  //   commentService.remove(commentId);
+
+  // }
 
   const deleteItemHandler = () => {
     const confirmation = window.confirm(
@@ -77,6 +89,7 @@ export const ItemDetailsPage = () => {
             {currentItem.comments?.map((x) => (
               <li key={x} className={styles.comment}>
                 <p>{x}</p>
+                {/* <button onClick={deleteCommentHandler}>x</button> */}
               </li>
             ))}
           </ul>

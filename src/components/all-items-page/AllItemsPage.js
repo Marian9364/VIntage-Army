@@ -9,7 +9,7 @@ export const AllItemsPage = () => {
     <div className={styles.mainWrapper}>
       {items.length > 0 ?
       (
-        items.map((x) => <SingleItem key={x._id} item={x} />)
+        items.map(x => <SingleItem key={x._id} item={x} />)
       ) : (
         <h1 className={styles.mainWrapper}>No articles yet</h1>
       )}

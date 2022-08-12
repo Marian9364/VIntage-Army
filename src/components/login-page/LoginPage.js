@@ -19,6 +19,11 @@ export function LoginPage() {
         password,
     } = Object.fromEntries(new FormData(e.target));
 
+    if (email === "" || password === "") {
+      alert("All fields must be filled!");
+      return
+  }
+
     authService.login(email, password)
         .then(authData => {
             userLogin(authData);

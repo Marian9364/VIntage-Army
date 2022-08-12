@@ -15,7 +15,7 @@ import { AddItemPage } from "./components/add-item-page/AddItemPage";
 import { EditItemPage } from "./components/edit-page/EditItemPage";
 import { ItemDetailsPage } from "./components/item-details-page/ItemDetailsPage";
 import { NotFoundPage } from "./components/not-found-page/NotFoundPage";
-
+import { RouteGuard } from "./components/route-guard/RouteGuard";
 function App() {
 
   return (
@@ -29,12 +29,14 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/users/:userId" element={<ProfilePage />} />
             <Route path="/items" element={<AllItemsPage />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/add" element={<AddItemPage />} />
-            <Route path="/items/:itemId/edit" element={<EditItemPage />} />
             <Route path="/items/:itemId" element={<ItemDetailsPage />} />
+            <Route element={<RouteGuard />}>
+              <Route path="/items/:itemId/edit" element={<EditItemPage />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/users/:userId" element={<ProfilePage />} />
+              <Route path="/add" element={<AddItemPage />} />
+            </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />

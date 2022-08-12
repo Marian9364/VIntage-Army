@@ -14,7 +14,7 @@ const REMOVE_ITEM = "REMOVE_ITEM";
 const itemReducer = (state, action) => {
   switch (action.type) {
     case ADD_ITEMS:
-      return action.payload.map((x) => ({ ...x, comments: [] }));
+      return action.payload.map(x => ({ ...x, comments: [] }));
     case ADD_ITEM:
       return [...state, action.payload];
     case FETCH_ITEM_DETAILS:
@@ -38,7 +38,7 @@ export const ItemProvider = ({ children }) => {
   const [items, dispatch] = useReducer(itemReducer, []);
 
   useEffect(() => {
-    itemsService.getAll().then((result) => {
+    itemsService.getAll().then(result => {
       dispatch({        
         type: ADD_ITEMS,
         payload: result,
@@ -47,7 +47,7 @@ export const ItemProvider = ({ children }) => {
   }, []);
 
   const selectItem = (itemId) => {
-    return items.find((x) => x._id === itemId) || {};
+    return items.find(x => x._id === itemId) || {};
   };
 
   const fetchItemDetails = (itemId, itemDetails) => {

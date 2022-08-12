@@ -23,6 +23,11 @@ export function RegisterPage() {
         return
     }
 
+    if (email === "" || password === "" || confirmPassword === "") {
+      alert("All fields must be filled!");
+      return
+  }
+
     authService.register(email, password)
         .then(authData => {
             userLogin(authData);
