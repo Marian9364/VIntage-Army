@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/BG-Baba/static/css/main.11067bd7.css",
+    "main.js": "/BG-Baba/static/js/main.2973f8b0.js",
+    "static/js/787.624ad79f.chunk.js": "/BG-Baba/static/js/787.624ad79f.chunk.js",
+    "static/media/creator.jpg": "/BG-Baba/static/media/creator.805a6dbabd32e8f382bb.jpg",
+    "static/media/waterfall.jpeg": "/BG-Baba/static/media/waterfall.dfd2bbb9934835986bc4.jpeg",
+    "static/media/windmill.jpeg": "/BG-Baba/static/media/windmill.755efd6dcbfb41cc4d44.jpeg",
+    "static/media/grandmothersPic.jpeg": "/BG-Baba/static/media/grandmothersPic.bf69e354c08d6d4b4498.jpeg",
+    "index.html": "/BG-Baba/index.html",
+    "main.11067bd7.css.map": "/BG-Baba/static/css/main.11067bd7.css.map",
+    "main.2973f8b0.js.map": "/BG-Baba/static/js/main.2973f8b0.js.map",
+    "787.624ad79f.chunk.js.map": "/BG-Baba/static/js/787.624ad79f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11067bd7.css",
+    "static/js/main.2973f8b0.js"
+  ]
+}
