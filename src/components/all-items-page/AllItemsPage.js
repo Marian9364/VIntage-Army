@@ -11,7 +11,7 @@ export const AllItemsPage = () => {
       (
         items.map(x => <SingleItem key={x._id} item={x} />)
       ) : (
-        <h1 className={styles.mainWrapper}>No articles yet</h1>
+        <h1 className={styles.mainWrapper}>No clothes currently available to sell</h1>
       )}
     </div>
   );
