@@ -52,7 +52,8 @@ export const EditItemPage = () => {
               className={styles.inputFields}
               name="size"
               id="size"
-              defaultValue={currentItem.size}
+              value={currentItem.size}
+              onChange={(e) => setCurrentItem({ ...currentItem, size: e.target.value })}
             >
               <option value="XS">XS</option>
               <option value="S">S</option>
@@ -72,7 +73,9 @@ export const EditItemPage = () => {
               className={styles.inputFields}
               name="gender"
               id="gender"
-              defaultValue={currentItem.gender}
+              value={currentItem.gender}
+              onChange={(e) => setCurrentItem({ ...currentItem, gender: e.target.value })}
+
             >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
