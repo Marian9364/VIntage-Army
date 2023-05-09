@@ -99,6 +99,7 @@ export const EditItemPage = () => {
               type="number"
               name="price"
               defaultValue={currentItem.price}
+              step="0.01"
             />
           </div>
           <div>
