@@ -64,3 +64,6 @@
    border-radius: 1px solid white;
 }
 
+.price {
+    font-size: larger;
+    text-shadow: #FC0 1px 0 10px;}

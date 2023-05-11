@@ -71,6 +71,7 @@ export const AddItemPage = () => {
               type="number"
               name="price"
               placeholder="24.99"
+              step="0.01"
             />
           </div>
           <div>
