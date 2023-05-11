@@ -14,7 +14,7 @@ export const Header = () => {
     } else {
         emailNickname = undefined;
     }
-
+    //or user?.email - to use the user's email as a greeting nickname
     const userNav = (
         <nav>
         <ul className={styles.header} role="list">
@@ -32,7 +32,7 @@ export const Header = () => {
     const guestNav = (
         <nav>
     <ul className={styles.header} role="list">
-    <li className={styles.headerLinks}><span className={styles.headerLinkElement}><em>Welcome {user?.email}</em></span></li>
+    <li className={styles.headerLinks}><span className={styles.headerLinkElement}><em>Welcome dear Guest</em></span></li>
         <li className={styles.headerLinks}><Link to="/" className={`${styles.headerLinkElement} ${styles.home}`}>Home</Link></li>
         <li className={styles.headerLinks}><Link to="/login" className={styles.headerLinkElement}>Login</Link></li>
         <li className={styles.headerLinks}><Link to="/register" className={styles.headerLinkElement}>Register</Link></li>
