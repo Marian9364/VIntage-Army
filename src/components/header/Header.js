@@ -6,7 +6,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 
 export const Header = () => {
     const { user } = useAuthContext();
-    const emailNicknames = user.email ? user.email.split('@')[0] : null;
+
     let emailNickname;
 
     if (user.email) {
@@ -19,7 +19,7 @@ export const Header = () => {
     const userNav = (
         <nav>
         <ul className={styles.header} role="list">
-            <li className={styles.headerLinks}><span className={styles.headerLinkElement}><em>Welcome {emailNicknames}</em></span></li>
+            <li className={styles.headerLinks}><span className={styles.headerLinkElement}><em>Welcome {emailNickname}</em></span></li>
             <li className={styles.headerLinks}><Link to="/" className={styles.headerLinkElement}>Home</Link></li>
             <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
             <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>

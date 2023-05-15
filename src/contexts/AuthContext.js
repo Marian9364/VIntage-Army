@@ -21,7 +21,9 @@ export const AuthProvider = ({
             user: auth,
             userLogin,
             userLogout,
-            isAuthenticated: !!auth.accessToken
+            //isAuthenticated: !!auth.accessToken
+            isAuthenticated: auth.accessToken? true : false
+
         }}>
             {children}
         </AuthContext.Provider>  
