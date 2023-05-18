@@ -8,7 +8,7 @@ export function ContactPage() {
         <h1>Contacts</h1>
         <h3>For questions, feedback and overall information feel free to contact us on our e-mail: <b><u>bg-baba@mail.com</u></b> .</h3>
         <h3><i>or feel free to use our contact form below</i></h3>
-        //<ContactForm/>
+        <ContactForm/>
 
     </div>
   );

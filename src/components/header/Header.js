@@ -7,19 +7,20 @@ import { useAuthContext } from "../../contexts/AuthContext";
 export const Header = () => {
     const { user } = useAuthContext();
 
-    // let emailNickname;
 
-    // if (user.email) {
-    //     emailNickname = user.email.split('@')[0];
+    let emailNickname;
 
-    // } else {
-    //     emailNickname = undefined;
-    // }
+    if (user.email) {
+        emailNickname = user.email.split('@')[0];
+
+    } else {
+        emailNickname = undefined;
+    }
     //or user?.email - to use the user's email as a greeting nickname
     const userNav = (
         <nav>
         <ul className={styles.header} role="list">
-            <li className={styles.headerLinks}><span className={styles.headerLinkElement}><em>Welcome {user?.email}</em></span></li>
+            <li className={styles.headerLinks}><span className={styles.headerLinkElement}><em><Link to="/users/:userid" className={styles.headerLinkElement}><u>Welcome {emailNickname}</u></Link></em></span></li>
             <li className={styles.headerLinks}><Link to="/" className={styles.headerLinkElement}>Home</Link></li>
             <li className={styles.headerLinks}><Link to="/about" className={styles.headerLinkElement}>About Us</Link></li>
             <li className={styles.headerLinks}><Link to="/contact" className={styles.headerLinkElement}>Contact Us</Link></li>
