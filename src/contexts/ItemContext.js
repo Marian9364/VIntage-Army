@@ -13,8 +13,8 @@ const REMOVE_ITEM = "REMOVE_ITEM";
 //comment line 16 and 17 if problems appears by starting the project
 const itemReducer = (state, action) => {
   switch (action.type) {
-    // case ADD_ITEMS:
-    //   return action.payload.map(x => ({ ...x, comments: [] }));
+    case ADD_ITEMS:
+      return action.payload.map(x => ({ ...x, comments: [] }));
     case ADD_ITEM:
       return [...state, action.payload];
     case FETCH_ITEM_DETAILS:

@@ -42,6 +42,7 @@
     cursor: pointer;
     }
       
-    button:hover {
+.sendBtn:hover{
     background-color: #45a049;
-    }
+    
+}

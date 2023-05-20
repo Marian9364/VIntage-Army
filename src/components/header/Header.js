@@ -7,15 +7,13 @@ import { useAuthContext } from "../../contexts/AuthContext";
 export const Header = () => {
     const { user } = useAuthContext();
 
-
     let emailNickname;
 
     if (user.email) {
         emailNickname = user.email.split('@')[0];
 
-    } else {
-        emailNickname = undefined;
-    }
+    };
+    
     //or user?.email - to use the user's email as a greeting nickname
     const userNav = (
         <nav>

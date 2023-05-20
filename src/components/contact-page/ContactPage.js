@@ -79,7 +79,7 @@ export const ContactForm = () => {
           />
         </label>
       </div>
-      <button type="submit">Send Email</button>
+      <button type="submit" className={styles.sendBtn}>Send Email</button>
     </form>
   );
 };

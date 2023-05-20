@@ -46,6 +46,7 @@
     border-radius: 10%;
     background-color: transparent;
     cursor: pointer;
+
 }
 .comment {
     display: flex;
@@ -66,7 +67,7 @@
     color: white;
     background-color: transparent;
     border: 2px solid white;
-    position:absolute;
+    position:relative;
     border-radius: 5%;
     cursor: pointer;
 }
