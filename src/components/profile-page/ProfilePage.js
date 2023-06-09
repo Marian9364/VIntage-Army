@@ -21,7 +21,7 @@ export const ProfilePage = () => {
     return(
         <div className={styles.mainWrapper}>
         <h1>My Profile</h1>
-        <h2>Hello {user?.email}!</h2>
+        <h2>Hello <span className={styles.userEmail}>{user?.email}</span>!</h2>
         <div className={styles.myItemsWrapper}>
       {ownerItems.length > 0 ?
       (

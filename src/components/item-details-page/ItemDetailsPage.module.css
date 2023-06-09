@@ -46,7 +46,10 @@
     border-radius: 10%;
     background-color: transparent;
     cursor: pointer;
+}
 
+.delBtn:hover, .editBtn:hover, .btnSubmit:hover {
+    background-color: rgba(230, 230, 222, 0.489);
 }
 .comment {
     display: flex;
@@ -71,6 +74,7 @@
     border-radius: 5%;
     cursor: pointer;
 }
+
 
 .btnSubmitDisabled {
     color: red;

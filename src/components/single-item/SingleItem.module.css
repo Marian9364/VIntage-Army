@@ -47,6 +47,10 @@
     margin-left: 20px;
 }
 
+.detailsBtn:hover {
+    color: rgba(255, 255, 255, 0.834);
+}
+
 .img {
     margin-top: -10px;
     border-radius: 50%;

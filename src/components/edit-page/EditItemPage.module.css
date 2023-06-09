@@ -44,3 +44,7 @@
     cursor: pointer;
     background-color: lightblue;
 }
+
+.editItemBtn:hover {
+    background-color: rgba(173, 216, 230, 0.883);
+}
