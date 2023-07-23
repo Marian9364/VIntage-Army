@@ -1,18 +1,18 @@
 import styles from "./AllItemsPage.module.css";
 import { useItemContext } from "../../contexts/ItemContext";
-import { SingleItem } from "../single-item/SingleItem";
-
+import { SearchComponent } from "./SearchComponent";
 export const AllItemsPage = () => {
-  const { items } = useItemContext();
+  // const { items } = useItemContext();
 
   return (
     <div className={styles.mainWrapper}>
-      {items.length > 0 ?
+      <SearchComponent />
+      {/* {items.length > 0 ?
       (
         items.map(x => <SingleItem key={x._id} item={x} />)
       ) : (
         <h1 className={styles.mainWrapper}>No clothes currently available to sell</h1>
-      )}
+      )} */}
     </div>
   );
 };
