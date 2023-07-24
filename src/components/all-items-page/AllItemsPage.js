@@ -1,8 +1,9 @@
 import styles from "./AllItemsPage.module.css";
 import { useItemContext } from "../../contexts/ItemContext";
 import { SearchComponent } from "./SearchComponent";
+import { SingleItem } from "../single-item/SingleItem";
 export const AllItemsPage = () => {
-  // const { items } = useItemContext();
+  const { items } = useItemContext();
 
   return (
     <div className={styles.mainWrapper}>
