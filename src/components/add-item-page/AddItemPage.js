@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { ItemContext } from "../../contexts/ItemContext";
 import * as itemsService from "../../services/itemsService";
 
+const defaultImg = "https://www.murphynye.com/img/p/en-default-medium_default.jpg";
+
 export const AddItemPage = () => {
   const { addItem } = useContext(ItemContext);
 
@@ -10,6 +12,9 @@ export const AddItemPage = () => {
     e.preventDefault();
 
     const itemData = Object.fromEntries(new FormData(e.target));
+    if (itemData.img == "") {
+      itemData.img = defaultImg; 
+    }
 
     itemsService.create(itemData).then((result) => {
       addItem(result);
